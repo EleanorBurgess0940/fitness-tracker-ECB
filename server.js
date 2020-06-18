@@ -20,6 +20,7 @@ mongoose.connect("mongodb://localhost/workout", {
 
 // routes
 require("./routes/htmlRoutes")(app);
+app.use(require("./routes/apiRoutes"));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
