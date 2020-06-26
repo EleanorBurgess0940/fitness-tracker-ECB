@@ -1,6 +1,9 @@
+//various dependencies
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+
+//heroku deployment
 var MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
@@ -14,9 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-
+//connects to the online database
 mongoose.connect(MONGODB_URI);
-
+//connects to the local database
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false,
